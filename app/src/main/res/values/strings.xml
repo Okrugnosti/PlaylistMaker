@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">Playlist Maker</string>
+    <string name="s1">Playlist market</string>
+    <string name="s2">Поиск</string>
+    <string name="s3">Медиатека</string>
+    <string name="s4">Настройки</string>
+
+    <string name="t1">Настройки</string>
+    <string name="t2">Темная тема</string>
+    <string name="t3">Поделиться приложением</string>
+    <string name="t4">Написать в поддержку</string>
+    <string name="t5">Пользовательское соглашение</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>
