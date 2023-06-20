@@ -6,7 +6,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="#FFFFFF"
+android:background="@color/white"
 android:orientation="vertical"
 android:padding="16dp"
 tools:context=".SettingsActivity">
@@ -29,32 +29,11 @@ tools:context=".SettingsActivity">
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:text="@string/t1"
-        android:textColor="#1A1B22"
-        android:textSize="26sp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize"
         android:layout_marginHorizontal="48dp"/>
 </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="0dp">
-
-    <Button
-        android:id="@+id/setting_button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:backgroundTint="#ffffff"
-        android:text="@string/t1"
-        android:textAllCaps="false"
-        android:textColor="#1A1B22"
-        android:textSize="26dp"
-        app:icon="@drawable/strelka"
-        app:iconGravity="textStart"
-        app:iconPadding="10dp"
-        app:iconTint="#1A1B22" />
-
-    </FrameLayout>
 
 
 <FrameLayout
@@ -67,7 +46,7 @@ tools:context=".SettingsActivity">
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:text="@string/t2"
-        android:textColor="#1A1B22"
+        android:textColor="@color/black"
         android:textSize="19sp" />
 
     <ImageView
@@ -90,7 +69,7 @@ tools:context=".SettingsActivity">
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:text="@string/t3"
-        android:textColor="#1A1B22"
+        android:textColor="@color/black"
         android:textSize="19sp" />
 
     <ImageView
@@ -113,7 +92,7 @@ tools:context=".SettingsActivity">
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:text="@string/t4"
-        android:textColor="#1A1B22"
+        android:textColor="@color/black"
         android:textSize="19sp" />
 
     <ImageView
@@ -134,7 +113,7 @@ tools:context=".SettingsActivity">
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:text="@string/t5"
-        android:textColor="#1A1B22"
+        android:textColor="@color/black"
         android:textSize="19sp" />
 
     <ImageView

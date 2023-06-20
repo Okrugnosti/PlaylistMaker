@@ -5,7 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3772E7"
+    android:background="@color/purple_200"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:text="@string/s1"
-        android:textColor="#F5F5F5"
-        android:textSize="26sp"/>
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize"/>
 
     <Button
         android:id="@+id/search_button"
@@ -23,16 +23,16 @@
         android:layout_height="0dp"
         android:layout_marginEnd="0dp"
         android:layout_weight="1"
-        android:backgroundTint="#ffffff"
+        android:backgroundTint="@color/white"
         android:text="@string/s2"
         android:textAllCaps="false"
-        android:textSize="26dp"
-        android:textColor="#1A1B22"
+        android:textSize="@dimen/textSize"
+        android:textColor="@color/black"
         app:cornerRadius="10dp"
         app:icon="@drawable/search"
         app:iconGravity="textStart"
         app:iconPadding="10dp"
-        app:iconTint="#1A1B22"/>
+        app:iconTint="@color/black"/>
 
     <Button
         android:id="@+id/media_button"
@@ -40,16 +40,16 @@
         android:layout_height="0dp"
         android:layout_marginEnd="0dp"
         android:layout_weight="1"
-        android:backgroundTint="#ffffff"
+        android:backgroundTint="@color/white"
         android:text="@string/s3"
         android:textAllCaps="false"
-        android:textSize="26dp"
-        android:textColor="#1A1B22"
+        android:textSize="@dimen/textSize"
+        android:textColor="@color/black"
         app:cornerRadius="10dp"
         app:icon="@drawable/music"
         app:iconGravity="textStart"
         app:iconPadding="10dp"
-        app:iconTint="#1A1B22"/>
+        app:iconTint="@color/black"/>
 
     <Button
         android:id="@+id/setting_button"
@@ -57,15 +57,15 @@
         android:layout_height="0dp"
         android:layout_marginEnd="0dp"
         android:layout_weight="1"
-        android:backgroundTint="#ffffff"
+        android:backgroundTint="@color/white"
         android:text="@string/s4"
         android:textAllCaps="false"
-        android:textSize="26dp"
-        android:textColor="#1A1B22"
+        android:textSize="@dimen/textSize"
+        android:textColor="@color/black"
         app:cornerRadius="10dp"
         app:icon="@drawable/setting"
         app:iconGravity="textStart"
         app:iconPadding="10dp"
-        app:iconTint="#1A1B22"/>
+        app:iconTint="@color/black"/>
 
 </LinearLayout>
