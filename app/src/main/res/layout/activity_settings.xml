@@ -1,128 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/white"
-android:orientation="vertical"
-android:padding="16dp"
-tools:context=".SettingsActivity">
-
-<FrameLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="20dp">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/paddingVertical20"
+    tools:context=".SettingsActivity">
 
-    <ImageView
-        android:id="@+id/setting_button_back2"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/strelka" />
+        android:paddingVertical="@dimen/paddingVertical20">
 
-    <TextView
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/setting_button_back2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/strelka" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="48dp"
+            android:text="@string/t1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize" />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="@string/t1"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textSize"
-        android:layout_marginHorizontal="48dp"/>
-</FrameLayout>
+        android:paddingVertical="@dimen/paddingVertical20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/t2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/layout_marginTop8"
+            android:src="@drawable/control" />
+    </FrameLayout>
 
 
-
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="20dp">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="@string/t2"
-        android:textColor="@color/black"
-        android:textSize="19sp" />
+        android:paddingVertical="@dimen/paddingVertical20">
 
-    <ImageView
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/t3"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize20" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/layout_marginTop8"
+            android:src="@drawable/links" />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="0dp"
-        android:src="@drawable/control" />
-</FrameLayout>
+        android:paddingVertical="@dimen/paddingVertical20">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/t4"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize20" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/layout_marginTop8"
+            android:src="@drawable/dispetcher" />
+    </FrameLayout>
 
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="20dp">
-
-    <TextView
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="@string/t3"
-        android:textColor="@color/black"
-        android:textSize="19sp" />
+        android:paddingVertical="@dimen/paddingVertical20">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="0dp"
-        android:src="@drawable/links" />
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/t5"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize20" />
 
-
-
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="20dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="@string/t4"
-        android:textColor="@color/black"
-        android:textSize="19sp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="0dp"
-        android:src="@drawable/dispetcher" />
-</FrameLayout>
-
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="20dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="@string/t5"
-        android:textColor="@color/black"
-        android:textSize="19sp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginTop="0dp"
-        android:src="@drawable/left" />
-</FrameLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/layout_marginTop8"
+            android:src="@drawable/left" />
+    </FrameLayout>
 
 
 </LinearLayout>

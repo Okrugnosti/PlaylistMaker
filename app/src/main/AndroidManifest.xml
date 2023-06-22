@@ -15,10 +15,10 @@
             android:name=".SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".Activiti_Media"
+            android:name=".MediaActiviti"
             android:exported="false" />
         <activity
-            android:name=".Activiti_Search"
+            android:name=".SearchActiviti"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

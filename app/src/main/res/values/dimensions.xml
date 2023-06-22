@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="textSize">26dp</dimen>
+    <dimen name="textSize">26sp</dimen>
+    <dimen name="textSize20">20sp</dimen>
+    <dimen name="dp10">10dp</dimen>
+
+    <dimen name="paddingVertical20">20dp</dimen>
+    <dimen name="layout_marginTop8">8dp</dimen>
+    <dimen name="layout_marginEnd0">0dp</dimen>
+    <dimen name="layout_heightd0">0dp</dimen>
 
 
 </resources>
