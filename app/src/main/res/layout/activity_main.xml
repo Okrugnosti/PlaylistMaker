@@ -20,9 +20,12 @@
         android:id="@+id/search_button"
         android:layout_width="match_parent"
         android:layout_height="@dimen/layout_heightd0"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="@dimen/layout_marginEnd0"
         android:layout_weight="1"
         android:backgroundTint="@color/white"
+        android:paddingStart="0dp"
+
         android:text="@string/s2"
         android:textAllCaps="false"
         android:textColor="@color/black"

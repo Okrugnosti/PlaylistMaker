@@ -3,9 +3,9 @@ package com.example.playlistmaker
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class SearchActiviti : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_activiti_search)
+        setContentView(R.layout.activity_search)
     }
 }
