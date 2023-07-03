@@ -5,15 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     android:padding="@dimen/paddingVertical20"
-    tools:context=".SettingsActivity">
+    tools:context=".SettingsActivity"
+    style="@style/SettingActivityDayLinearLayout">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/paddingVertical20">
+    <FrameLayout style="@style/SettingActivityDayFrameLayout">
 
         <ImageView
             android:id="@+id/setting_button_back2"
@@ -21,7 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="12dp"
-            android:src="@drawable/vector" />
+            style="SettingActivityDayVectorImage"
+            android:src="@drawable/vector"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,94 +27,54 @@
             android:layout_gravity="start"
             android:layout_marginHorizontal="48dp"
             android:text="@string/t1"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textSize" />
+            android:textSize="@dimen/textSize"
+            style="@style/SettingActivityDayTextView"/>
     </FrameLayout>
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/paddingVertical20">
+    <FrameLayout style="@style/SettingActivityDayFrameLayout">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/t2"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textSize20" />
+            style="@style/SettingActivityDayText"
+            android:text="@string/t2" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/layout_marginTop8"
+            style="@style/SettingActivityDayImage"
             android:src="@drawable/control" />
     </FrameLayout>
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/paddingVertical20">
+    <FrameLayout style="@style/SettingActivityDayFrameLayout">>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/t3"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textSize20" />
+            style="@style/SettingActivityDayText"
+            android:text="@string/t3" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/layout_marginTop8"
+            style="@style/SettingActivityDayImage"
             android:src="@drawable/links" />
     </FrameLayout>
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/paddingVertical20">
+    <FrameLayout style="@style/SettingActivityDayFrameLayout">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/t4"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textSize20" />
+            style="@style/SettingActivityDayText"
+            android:text="@string/t4" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/layout_marginTop8"
+            style="@style/SettingActivityDayImage"
             android:src="@drawable/dispetcher" />
     </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/paddingVertical20">
+    <FrameLayout style="@style/SettingActivityDayFrameLayout">>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/t5"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textSize20" />
+            style="@style/SettingActivityDayText"
+            android:text="@string/t5" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/layout_marginTop8"
+            style="@style/SettingActivityDayImage"
             android:src="@drawable/left" />
     </FrameLayout>
 

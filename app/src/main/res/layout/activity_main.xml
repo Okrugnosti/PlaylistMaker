@@ -4,70 +4,33 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_200"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    style="@style/MainActivityDayLinearLayout">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:text="@string/s1"
-        android:textColor="@color/white"
-        android:textSize="@dimen/textSize" />
+        android:textSize="@dimen/textSize"
+        style="@style/MainActivityDayTextView"
+        />
 
     <Button
         android:id="@+id/search_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_heightd0"
+        style="@style/MainActivityDayButton"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="@dimen/layout_marginEnd0"
-        android:layout_weight="1"
-        android:backgroundTint="@color/white"
-        android:paddingStart="0dp"
-
-        android:text="@string/s2"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textSize"
-        app:cornerRadius="@dimen/dp10"
-        app:icon="@drawable/search"
-        app:iconGravity="textStart"
-        app:iconPadding="@dimen/dp10"
-        app:iconTint="@color/black" />
+        android:text="@string/s2" />
 
     <Button
         android:id="@+id/media_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_heightd0"
-        android:layout_marginEnd="@dimen/layout_marginEnd0"
-        android:layout_weight="1"
-        android:backgroundTint="@color/white"
-        android:text="@string/s3"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textSize"
-        app:cornerRadius="@dimen/dp10"
-        app:icon="@drawable/music"
-        app:iconGravity="textStart"
-        app:iconPadding="@dimen/dp10"
-        app:iconTint="@color/black" />
+        style="@style/MainActivityDayButton"
+        android:text="@string/s3" />
 
     <Button
         android:id="@+id/setting_button"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/layout_heightd0"
-        android:layout_marginEnd="@dimen/layout_marginEnd0"
-        android:layout_weight="1"
-        android:backgroundTint="@color/white"
-        android:text="@string/s4"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textSize"
-        app:cornerRadius="@dimen/dp10"
-        app:icon="@drawable/setting"
-        app:iconGravity="textStart"
-        app:iconPadding="@dimen/dp10"
-        app:iconTint="@color/black" />
+        style="@style/MainActivityDayButton"
+        android:text="@string/s4" />
 
 </LinearLayout>
