@@ -14,23 +14,25 @@
         android:layout_gravity="start"
         android:text="@string/s1"
         android:textSize="@dimen/textSize"
-        style="@style/MainActivityDayTextView"
-        />
+        style="@style/MainActivityDayTextView"/>
 
     <Button
         android:id="@+id/search_button"
         style="@style/MainActivityDayButton"
         android:layout_marginTop="28dp"
-        android:text="@string/s2" />
+        android:text="@string/s2"
+        app:icon = "@drawable/search"/>
 
     <Button
         android:id="@+id/media_button"
         style="@style/MainActivityDayButton"
-        android:text="@string/s3" />
+        android:text="@string/s3"
+        app:icon = "@drawable/music"/>
 
     <Button
         android:id="@+id/setting_button"
         style="@style/MainActivityDayButton"
-        android:text="@string/s4" />
+        android:text="@string/s4"
+        app:icon = "@drawable/setting"/>
 
 </LinearLayout>

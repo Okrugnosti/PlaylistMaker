@@ -1,8 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SearchActivityDayLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/paddingVertical20"
     tools:context=".SearchActivity">
 
-</FrameLayout>
+    <FrameLayout style="@style/SettingActivityDayFrameLayout">
+
+        <ImageView
+            android:id="@+id/search_vector"
+            style="@style/SearchActivityDayImageVector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            style="@style/SearchActivityDayTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="48dp"
+            android:text="@string/w1"
+            android:textSize="@dimen/textSize" />
+    </FrameLayout>
+
+    <FrameLayout style="@style/SearchActivityDayFrameLayout">
+
+        <ImageView
+            style="@style/SearchActivityDayImage"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="1dp" />
+
+        <EditText
+            android:id = "@+id/editTextSearch"
+            style="@style/SearchActivityDayEditText"
+            android:layout_marginLeft="35dp"
+            android:hint="@string/w1"
+            android:inputType="textAutoComplete"
+            android:maxLength="50"
+            android:maxLines="1" />
+
+        <ImageView
+            android:id = "@+id/clearButtonSearch"
+            style="@style/SearchActivityDayClear"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>

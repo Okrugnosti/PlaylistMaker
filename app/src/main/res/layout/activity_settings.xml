@@ -44,13 +44,14 @@
     </FrameLayout>
 
 
-    <FrameLayout style="@style/SettingActivityDayFrameLayout">>
+    <FrameLayout style="@style/SettingActivityDayFrameLayout">
 
         <TextView
             style="@style/SettingActivityDayText"
             android:text="@string/t3" />
 
         <ImageView
+            android:id = "@+id/sendLinks"
             style="@style/SettingActivityDayImage"
             android:src="@drawable/links" />
     </FrameLayout>
@@ -63,17 +64,19 @@
             android:text="@string/t4" />
 
         <ImageView
+            android:id = "@+id/mailSupport"
             style="@style/SettingActivityDayImage"
             android:src="@drawable/dispetcher" />
     </FrameLayout>
 
-    <FrameLayout style="@style/SettingActivityDayFrameLayout">>
+    <FrameLayout style="@style/SettingActivityDayFrameLayout">
 
         <TextView
             style="@style/SettingActivityDayText"
             android:text="@string/t5" />
 
         <ImageView
+            android:id = "@+id/links"
             style="@style/SettingActivityDayImage"
             android:src="@drawable/left" />
     </FrameLayout>

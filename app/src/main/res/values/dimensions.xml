@@ -10,5 +10,8 @@
     <dimen name="layout_marginEnd0">0dp</dimen>
     <dimen name="layout_heightd0">0dp</dimen>
 
+    <dimen name="layout_height50">50dp</dimen>
+    <dimen name="layout_marginLeft10">10dp</dimen>
+
 
 </resources>
