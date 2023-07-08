@@ -45,13 +45,16 @@ class SettingsActivity : AppCompatActivity() {
 
         //ОТПРАВКА ПИСЬМА В ТЕХ.ПОДДЕРЖКУ
         mailSupport.setOnClickListener {
-            //val mailAddress = Uri.parse("mail: mail@mail.ru")
-
             val sendMail = Intent(Intent.ACTION_SENDTO)
-            //sendMail.putExtra(Intent.EXTRA_EMAIL, mailAddress)
+            sendMail.setData(Uri.parse("mailto:"))
+
+            sendMail.putExtra(
+                Intent.EXTRA_EMAIL,
+                arrayOf(getString(R.string.g5))
+            )
             sendMail.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.g1))
             sendMail.putExtra(Intent.EXTRA_TEXT, getString(R.string.g2))
-            sendMail.setData(Uri.parse("mailto:"))
+
             startActivity(sendMail)
         }
 

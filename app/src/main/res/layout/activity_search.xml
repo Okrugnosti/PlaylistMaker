@@ -9,7 +9,10 @@
     android:padding="@dimen/paddingVertical20"
     tools:context=".SearchActivity">
 
-    <FrameLayout style="@style/SettingActivityDayFrameLayout">
+    <FrameLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:paddingVertical = "@dimen/paddingVertical20">
 
         <ImageView
             android:id="@+id/search_vector"
@@ -26,21 +29,31 @@
             android:layout_gravity="start"
             android:layout_marginHorizontal="48dp"
             android:text="@string/w1"
-            android:textSize="@dimen/textSize" />
+            android:textSize="@dimen/textSize"
+            android:fontFamily = "@font/ys_display_regular"/>
     </FrameLayout>
 
-    <FrameLayout style="@style/SearchActivityDayFrameLayout">
+    <FrameLayout style="@style/SearchActivityDayFrameLayout"
+        android:layout_width = "match_parent"
+        android:layout_height = "@dimen/layout_height50"
+        android:layout_marginLeft ="0dp">
 
         <ImageView
             style="@style/SearchActivityDayImage"
-            android:layout_marginStart="10dp"
+            android:layout_width = "wrap_content"
+            android:layout_height = "match_parent"
+            android:layout_gravity = "start"
+            android:layout_marginStart="3dp"
             android:layout_marginTop="1dp" />
 
         <EditText
             android:id = "@+id/editTextSearch"
             style="@style/SearchActivityDayEditText"
-            android:layout_marginLeft="35dp"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginLeft="25dp"
             android:hint="@string/w1"
+            android:fontFamily = "@font/ys_display_regular"
             android:inputType="textAutoComplete"
             android:maxLength="50"
             android:maxLines="1" />
@@ -48,7 +61,10 @@
         <ImageView
             android:id = "@+id/clearButtonSearch"
             style="@style/SearchActivityDayClear"
-            android:visibility="gone" />
+            android:layout_width = "wrap_content"
+            android:layout_height = "match_parent"
+            android:layout_gravity = "end"
+            android:visibility="visible" />
     </FrameLayout>
 
 </LinearLayout>

@@ -12,7 +12,6 @@
 
     <string name="w1">Поиск</string>
 
-
     <string name="e1">ЭКРАН Activiti_Media</string>
     <string name="e2">ЭКРАН Activiti_Search</string>
 
@@ -20,8 +19,6 @@
     <string name="g2">Спасибо разработчикам и разработчицам за крутое приложение!</string>
     <string name="g3">https://yandex.ru/legal/practicum_offer/</string>
     <string name="g4">https://practicum.yandex.ru/android-developer/</string>
-
-
-
+    <string name="g5">em2s@gmail.com</string>
 
 </resources>
