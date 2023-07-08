@@ -16,5 +16,12 @@
     <string name="e1">ЭКРАН Activiti_Media</string>
     <string name="e2">ЭКРАН Activiti_Search</string>
 
+    <string name="g1">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="g2">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="g3">https://yandex.ru/legal/practicum_offer/</string>
+    <string name="g4">https://practicum.yandex.ru/android-developer/</string>
+
+
+
 
 </resources>

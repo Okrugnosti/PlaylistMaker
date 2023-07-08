@@ -1,18 +1,16 @@
 package com.example.playlistmaker
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 
 class SearchActivity : AppCompatActivity() {
     companion object {
-        const val PRODUCT_AMOUNT = "PRODUCT_AMOUNT"
+        private const val PRODUCT_AMOUNT = "PRODUCT_AMOUNT"
     }
 
     private lateinit var editText: EditText
@@ -21,20 +19,29 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        val search_vector = findViewById<ImageView>(R.id.search_vector)
-        val editTextSearch = findViewById<EditText>(R.id.editTextSearch)
+        val searchVector = findViewById<ImageView>(R.id.search_vector)
+        val editText = findViewById<EditText>(R.id.editTextSearch)
         val clearButtonSearch = findViewById<ImageView>(R.id.clearButtonSearch)
 
 
         //КНОПКА ВОЗВРАТА В ГЛАВНОЕ МЕНЮ
-        search_vector.setOnClickListener {
+        searchVector.setOnClickListener {
+
+            /*
             val displayIntent = Intent(this, MainActivity::class.java)
             startActivity(displayIntent)
+            */
+
+            /*
+            Для перехода назад стоит использовать не интент, а методы finish() или onBackPressed(),
+            потому что иначе вместо возврата в предыдущий экран создается новый экземпляр MainActivity
+             */
+            this.finish()
         }
 
         //ОЧИСТКА ТЕКСТА В ПОЛЕ ВВОДА
         clearButtonSearch.setOnClickListener {
-            editTextSearch.setText("")
+            editText.setText("")
         }
 
 
@@ -73,8 +80,8 @@ class SearchActivity : AppCompatActivity() {
         }
 
         //устанавливает для объекта EditText созданый TextWatcher
-        editTextSearch.addTextChangedListener(simpleTextWatcher)
-        editText = findViewById<EditText?>(R.id.editTextSearch)
+        editText.addTextChangedListener(simpleTextWatcher)
+        this.editText = findViewById<EditText?>(R.id.editTextSearch)
     }
 
 

@@ -20,41 +20,44 @@ class SettingsActivity : AppCompatActivity() {
         val links = findViewById<ImageView>(R.id.links)
 
 
+        //НАЗАД В ГЛАВНОЕ МЕНЮ
+        settingButton.setOnClickListener {
+            /*
+            val displayIntent = Intent(this, MainActivity::class.java)
+            startActivity(displayIntent)
+            */
+
+            /*
+            Для перехода назад стоит использовать не интент, а методы finish() или onBackPressed(),
+            потому что иначе вместо возврата в предыдущий экран создается новый экземпляр MainActivity
+             */
+            this.finish()
+        }
+
         //ПОДЕЛИТЬСЯ ПРИЛОЖЕНИЕМ
         sendLinks.setOnClickListener {
-            val data = "https://practicum.yandex.ru/android-developer/"
+            val data = getString(R.string.g4)
             val openLinks = Intent(Intent.ACTION_SEND)
             openLinks.putExtra(Intent.EXTRA_TEXT, data)
             openLinks.setType("text/plain")
             startActivity(openLinks)
         }
 
-
-        //НАЗАД В ГЛАВНОЕ МЕНЮ
-        settingButton.setOnClickListener {
-            val displayIntent = Intent(this, MainActivity::class.java)
-            startActivity(displayIntent)
-        }
-
-
         //ОТПРАВКА ПИСЬМА В ТЕХ.ПОДДЕРЖКУ
         mailSupport.setOnClickListener {
             //val mailAddress = Uri.parse("mail: mail@mail.ru")
-            val item = "Сообщение разработчикам и разработчицам приложения Playlist Maker"
-            val textMail = "Спасибо разработчикам и разработчицам за крутое приложение!"
 
             val sendMail = Intent(Intent.ACTION_SENDTO)
             //sendMail.putExtra(Intent.EXTRA_EMAIL, mailAddress)
-            sendMail.putExtra(Intent.EXTRA_SUBJECT, item)
-            sendMail.putExtra(Intent.EXTRA_TEXT, textMail)
+            sendMail.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.g1))
+            sendMail.putExtra(Intent.EXTRA_TEXT, getString(R.string.g2))
             sendMail.setData(Uri.parse("mailto:"))
             startActivity(sendMail)
         }
 
-
         //ПЕРЕХОД НА ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
         links.setOnClickListener {
-            val address = Uri.parse("https://yandex.ru/legal/practicum_offer/")
+            val address = Uri.parse(getString(R.string.g3))
             val openLinks = Intent(Intent.ACTION_VIEW, address)
             startActivity(openLinks)
         }
