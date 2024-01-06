@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="textSize">26sp</dimen>
+    <dimen name="textSize20">20sp</dimen>
+    <dimen name="dp10">10dp</dimen>
+
+    <dimen name="paddingVertical20">20dp</dimen>
+    <dimen name="layout_marginTop8">8dp</dimen>
+    <dimen name="layout_marginEnd0">0dp</dimen>
+    <dimen name="layout_heightd0">0dp</dimen>
+
+    <dimen name="layout_height50">50dp</dimen>
+    <dimen name="layout_marginLeft10">10dp</dimen>
+
+    <dimen name="textSize11">11sp</dimen>
+    <dimen name="textSize16">16sp</dimen>
+    <dimen name="layout_width">45dp</dimen>
+    <dimen name="marginStart">14dp</dimen>
+    <dimen name="marginTop">8dp</dimen>
+    <dimen name="padding">16dp</dimen>
+
+
+
+
+
+//
+    <dimen name="margin_120dp">120dp</dimen>
+    <dimen name="image_square_120dp">120dp</dimen>
+    <dimen name="dp_106">106dp</dimen>
+    <dimen name="margin_102dp">102dp</dimen>
+    <dimen name="dp_46">46dp</dimen>
+    <dimen name="cover_size">45dp</dimen>
+    <dimen name="margin_34dp">34dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_26">26dp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="frame_padding">21dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="margin_18dp">18dp</dimen>
+    <dimen name="corner_radius">16dp</dimen>
+    <dimen name="padding_all_around">16dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="tv_margin">14dp</dimen>
+    <dimen name="margin_12dp">12dp</dimen>
+    <dimen name="bottom_margin">10dp</dimen>
+    <dimen name="card_radius">8dp</dimen>
+    <dimen name="iv_margin">8dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+
+</resources>

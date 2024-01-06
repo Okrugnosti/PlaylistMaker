@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    style="@style/MainActivityDayLinearLayout">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="start"
+        android:text="@string/s1"
+        android:textSize="@dimen/textSize"
+        style="@style/MainActivityDayTextView"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/search_button"
+        style="@style/MainActivityDayButton"
+        android:layout_marginTop="28dp"
+        android:text="@string/s2"
+        app:icon = "@drawable/search"/>
+
+    <Button
+        android:id="@+id/media_button"
+        style="@style/MainActivityDayButton"
+        android:text="@string/s3"
+        app:icon = "@drawable/music"/>
+
+    <Button
+        android:id="@+id/setting_button"
+        style="@style/MainActivityDayButton"
+        android:text="@string/s4"
+        app:icon = "@drawable/setting"/>
+
+</LinearLayout>

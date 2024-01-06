@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- Dark Theam -->
+
+<resources>
+
+    <!-- Main Activity Nigth-->
+
+    <style name="MainActivityDayLinearLayout">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="MainActivityDayTextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+    </style>
+
+    <style name="MainActivityDayButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/layout_heightd0</item>
+
+        <item name="android:layout_marginEnd">@dimen/layout_marginEnd0</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:backgroundTint">@color/gray</item>
+        <item name="android:paddingStart">0dp</item>
+
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textSize</item>
+
+        <item name="cornerRadius">@dimen/dp10</item>
+        <item name="icon">@drawable/search</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/dp10</item>
+        <item name="iconTint">@color/black</item>
+
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+
+    </style>
+
+
+    <!-- Setting Activity Night-->
+
+    <style name="SettingActivityDayLinearLayout">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="SettingActivityDayTextView">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SettingActivityDayImageVector">
+        <item name="android:src">@drawable/vector_white</item>
+    </style>
+
+    <style name="SettingActivityImageControl">
+        <item name="android:src">@drawable/control_nigth</item>
+    </style>
+
+    <style name="SettingActivityDayText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <!-- Search Activity Nigth-->
+
+    <style name="SearchActivityDayLinearLayout">
+        <item name="android:background">@color/black</item>
+    </style>
+
+    <style name="SearchActivityDayImageVector">
+        <item name="android:src">@drawable/vector_white</item>
+    </style>
+
+    <style name="SearchActivityDayTextView">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SearchActivityDayFrameLayout">
+        <item name="android:background">@drawable/roundrect_dark</item>
+    </style>
+
+    <style name="SearchActivityDayImage">
+        <item name="android:src">@drawable/search_dark_mode</item>
+    </style>
+
+    <style name="SearchActivityDayEditText">
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/black_dark</item>
+    </style>
+
+    <style name="SearchActivityDayClear">
+        <item name="android:src">@drawable/clear_night2</item>
+    </style>
+
+    <style name="SearchActivityDayPlaceholder">
+        <item name="android:src">@drawable/placeholder</item>
+    </style>
+
+    <!-- Track_View DAY-->
+    <style name="SettingsText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="fontFamily">@font/ys_display_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textSize">@dimen/textSize16</item>
+    </style>
+
+</resources>
