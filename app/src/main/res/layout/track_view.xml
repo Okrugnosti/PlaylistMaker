@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/trackIco"
+        android:layout_width="@dimen/layout_width"
+        android:layout_height="@dimen/layout_width"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginEnd="@dimen/marginTop"
+        android:layout_marginBottom="@dimen/marginTop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/trackName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/placeholder" />
+
+    <TextView
+        android:id="@+id/trackName"
+        style="@style/SettingsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginStart"
+        android:layout_marginBottom="1dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@id/trackАuthor"
+        app:layout_constraintEnd_toStartOf="@id/nextArrow"
+        app:layout_constraintStart_toEndOf="@id/trackIco"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="track Name" />
+
+    <TextView
+        android:id="@+id/trackАuthor"
+        style="@style/SettingsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginTop"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="@dimen/textSize11"
+        app:layout_constraintBottom_toBottomOf="@id/trackTime"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/trackIco"
+        app:layout_constraintTop_toBottomOf="@id/trackName"
+        tools:text="track Аuthor"
+        tools:ignore="PrivateResource" />
+
+    <ImageView
+        android:id="@+id/pointIco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/marginTop"
+        app:layout_constraintBottom_toBottomOf="@id/trackАuthor"
+        app:layout_constraintStart_toEndOf="@id/trackАuthor"
+        app:layout_constraintTop_toTopOf="@id/trackАuthor"
+        app:srcCompat="@drawable/eclipce" />
+
+    <TextView
+        android:id="@+id/trackTime"
+        style="@style/SettingsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textSize11"
+        app:layout_constraintBottom_toBottomOf="@id/pointIco"
+        app:layout_constraintStart_toEndOf="@id/pointIco"
+        app:layout_constraintTop_toTopOf="@id/pointIco"
+        tools:text="00:59" />
+
+    <ImageView
+        android:id="@+id/nextArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTop"
+        android:padding="@dimen/padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/left" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

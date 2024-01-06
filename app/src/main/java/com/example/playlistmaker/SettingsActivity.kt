@@ -13,7 +13,6 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-
         val settingButton = findViewById<ImageView>(R.id.setting_button_back2)
         val sendLinks = findViewById<ImageView>(R.id.sendLinks)
         val mailSupport = findViewById<ImageView>(R.id.mailSupport)
