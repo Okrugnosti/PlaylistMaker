@@ -11,11 +11,11 @@ import com.example.playlistmaker.R
 
 class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private val trackName: TextView = itemView.findViewById(R.id.songName)
-    private val artistName: TextView = itemView.findViewById(R.id.songArtist)
-    private val trackTime: TextView = itemView.findViewById(R.id.songDuration)
+    private val trackName: TextView = itemView.findViewById(R.id.trackName)
+    private val artistName: TextView = itemView.findViewById(R.id.trackАuthor)
+    private val trackTime: TextView = itemView.findViewById(R.id.trackTime)
 
-    private val Url: ImageView = itemView.findViewById(R.id.songCover)
+    private val Url: ImageView = itemView.findViewById(R.id.trackIco)
     fun bind(bindTrack: Track) {
         trackName.text = bindTrack.trackName
         artistName.text = bindTrack.artistName
