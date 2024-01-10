@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val mediaButton = findViewById<Button>(R.id.media_button)
         val settingButton = findViewById<Button>(R.id.setting_button)
 
-        //проверка состояния сети
+        //проверка состояния сети//
         println(Untold())
 
         searchButton.setOnClickListener {
