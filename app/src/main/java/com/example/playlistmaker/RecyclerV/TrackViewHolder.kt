@@ -1,5 +1,6 @@
 package com.example.playlistmaker.RecyclerV
 
+import android.view.RoundedCorner
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,8 +15,8 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val trackName: TextView = itemView.findViewById(R.id.trackName)
     private val artistName: TextView = itemView.findViewById(R.id.trackАuthor)
     private val trackTime: TextView = itemView.findViewById(R.id.trackTime)
+    private val url: ImageView = itemView.findViewById(R.id.trackIco)
 
-    private val Url: ImageView = itemView.findViewById(R.id.trackIco)
     fun bind(bindTrack: Track) {
         trackName.text = bindTrack.trackName
         artistName.text = bindTrack.artistName
@@ -25,7 +26,6 @@ class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         Glide.with(itemView)
             .load(bindTrack.artworkUrl100)
             .placeholder(R.drawable.placeholder)
-            .transform(RoundedCorners(3))
-            .centerInside().into(Url)
+            .centerInside().transform(RoundedCorners(10)).into(url)
     }
 }

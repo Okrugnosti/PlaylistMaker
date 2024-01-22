@@ -17,14 +17,14 @@
         app:layout_constraintEnd_toStartOf="@+id/trackName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/placeholder" />
+        app:srcCompat="@drawable/placeholder"/>
 
     <TextView
         android:id="@+id/trackName"
         style="@style/SettingsText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginStart"
+        android:layout_marginTop="@dimen/marginStartText"
         android:layout_marginBottom="1dp"
         android:ellipsize="end"
         android:singleLine="true"

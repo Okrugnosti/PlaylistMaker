@@ -18,9 +18,7 @@ class TrackAdapter(private val trackList: List<Track>) : RecyclerView.Adapter<Tr
     }
 
     //Возвращает количество элементов списка.
-    override fun getItemCount(): Int {
-        return trackList.size
-    }
+    override fun getItemCount() = trackList.size
 
     // тут происходит установка значений UI-компонент из модели данных.
     // Метод onBindViewHolder отвечает за корректное переиспользование существующей View.
