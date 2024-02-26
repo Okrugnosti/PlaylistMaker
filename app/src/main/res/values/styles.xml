@@ -106,4 +106,22 @@
         <item name="android:textSize">@dimen/textSize16</item>
     </style>
 
+    <!-- ErrorTextStyle DAY-->
+    <style name="ErrorTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="fontFamily">@font/ys_display_medium</item>
+        <item name="android:textSize">@dimen/text_19sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <!-- ErrorImageStyle DAY-->
+    <style name="ErrorImageStyle">
+        <item name="android:layout_width">@dimen/image_square_120dp</item>
+        <item name="android:layout_height">@dimen/image_square_120dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+
 </resources>
