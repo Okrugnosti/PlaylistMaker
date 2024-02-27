@@ -27,9 +27,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 //работа с интерфейсом ПОИСК
 class SearchActivity : AppCompatActivity() {
 
+    //константы
+    companion object {
+        const val SEARCH_INPUT = "SEARCH_INPUT"
+        const val COD200 = 200
+    }
+
     //объекты спсика
     private val tracks = ArrayList<Track>()
-    private val adapter = TrackAdapter()
+    private val trackAdapter = TrackAdapter()
 
     //объекты API
     private val baseUrl = "https://itunes.apple.com"
@@ -37,22 +43,17 @@ class SearchActivity : AppCompatActivity() {
     private val service = retrofit.create(ApiAppleItunes::class.java)
 
     //объекты VIEW
-    private lateinit var enterInput: EditText
-    private lateinit var back: View
+    private lateinit var recyclerTrack: RecyclerView
+    private lateinit var enterTextButton: EditText
     private lateinit var clearButton: ImageView
-    private lateinit var rTrack: RecyclerView
+    private lateinit var backButton: View
 
-    //константы
-    companion object {
-        const val SEARCH_INPUT = "SEARCH_INPUT"
-        const val SUCCESS = 200
-    }
 
     //ответы от сервера API
     enum class SearchStatus {
         CONNECTION_ERROR,
         EMPTY_SEARCH,
-        SUCCESS
+        COD200
     }
 
 
@@ -61,7 +62,7 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         //кнопка Назад
-        back = findViewById<View>(R.id.search_vector).apply {
+        backButton = findViewById<View>(R.id.search_vector).apply {
             setOnClickListener {
                 finish()
             }
@@ -70,16 +71,18 @@ class SearchActivity : AppCompatActivity() {
         //кнопка очистки текста
         clearButton = findViewById<ImageView>(R.id.clearButtonSearch).apply {
             setOnClickListener {
-                enterInput.text = null
+                enterTextButton.text = null
                 val inputMethodManager =
                     getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
-                inputMethodManager?.hideSoftInputFromWindow(enterInput.windowToken, 0)
+                inputMethodManager?.hideSoftInputFromWindow(enterTextButton.windowToken, 0)
             }
+
+
         }
 
         //поле ввода текста на клавиатуре
-        enterInput = findViewById<EditText?>(R.id.editTextSearch).apply { requestFocus() }
-        enterInput.doOnTextChanged { text, _, _, _ ->
+        enterTextButton = findViewById<EditText?>(R.id.editTextSearch).apply { requestFocus() }
+        enterTextButton.doOnTextChanged { text, _, _, _ ->
             if (text.isNullOrEmpty()) {
                 clearButton.visibility = View.INVISIBLE
             } else {
@@ -93,36 +96,37 @@ class SearchActivity : AppCompatActivity() {
         }
 
         //поиск по запросу
-        enterInput.setOnEditorActionListener { _, actionId, _ ->
+        enterTextButton.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 search()
             }
             false
         }
 
-        adapter.trackList = tracks
-        rTrack = findViewById(R.id.recyclerView)
-        rTrack.adapter = adapter
+        trackAdapter.trackList = tracks
+        recyclerTrack = findViewById(R.id.recyclerView)
+        recyclerTrack.adapter = trackAdapter
     }
-
 
     //обработка запроса на поиск
     private fun search() {
-        service.search(enterInput.text.toString())
+        service.search(enterTextButton.text.toString())
             .enqueue(object : Callback<TrackResponse> {
+
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onResponse(
                     call: Call<TrackResponse>,
                     response: Response<TrackResponse>
                 ) {
                     Log.d("RESPONSE_CODE", "Status code: ${response.code()}")
-                    Log.d("RESPONSE_BODY", "Status code: ${response.body()?.results}")
-                    if (response.code() == SUCCESS) {
+                    Log.d("RESPONSE_BODY", "Status code: ${response.body()?.resultations}")
+
+                    if (response.code() == COD200) {
                         tracks.clear()
-                        if (response.body()?.results?.isNotEmpty() == true) {
-                            tracks.addAll(response.body()?.results!!)
-                            adapter.notifyDataSetChanged()
-                            setStatus(SearchStatus.SUCCESS)
+                        if (response.body()?.resultations?.isNotEmpty() == true) {
+                            tracks.addAll(response.body()?.resultations!!)
+                            trackAdapter.notifyDataSetChanged()
+                            setStatus(SearchStatus.COD200)
                         }
                         if (tracks.isEmpty()) {
                             setStatus(SearchStatus.EMPTY_SEARCH)
@@ -138,39 +142,38 @@ class SearchActivity : AppCompatActivity() {
             })
     }
 
-    //определение статуса от сервера
+    //определение статуса от сервера и вывод визуализации представлений
     private fun setStatus(status: SearchStatus) {
-        val nothingFound = findViewById<View>(R.id.err_not_found)
-        val networkIssue = findViewById<View>(R.id.err_no_connection)
+        val errNotFound = findViewById<View>(R.id.err_not_found)
+        val errNoConnect = findViewById<View>(R.id.err_no_connection)
         when (status) {
             SearchStatus.CONNECTION_ERROR -> {
-                networkIssue.visibility = View.VISIBLE
-                rTrack.visibility = View.GONE
-                nothingFound.visibility = View.GONE
+                errNoConnect.visibility = View.VISIBLE
+                recyclerTrack.visibility = View.GONE
+                errNotFound.visibility = View.GONE
             }
             SearchStatus.EMPTY_SEARCH -> {
-                nothingFound.visibility = View.VISIBLE
-                networkIssue.visibility = View.GONE
-                rTrack.visibility = View.GONE
+                errNotFound.visibility = View.VISIBLE
+                errNoConnect.visibility = View.GONE
+                recyclerTrack.visibility = View.GONE
             }
-            SearchStatus.SUCCESS -> {
-                rTrack.visibility = View.VISIBLE
-                networkIssue.visibility = View.GONE
-                nothingFound.visibility = View.GONE
+            SearchStatus.COD200 -> {
+                recyclerTrack.visibility = View.VISIBLE
+                errNoConnect.visibility = View.GONE
+                errNotFound.visibility = View.GONE
             }
         }
     }
 
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        val searchText = enterInput.text.toString()
+        val searchText = enterTextButton.text.toString()
         outState.putString(SEARCH_INPUT, searchText)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         val savedText = savedInstanceState.getString(SEARCH_INPUT)
-        enterInput.setText(savedText)
+        enterTextButton.setText(savedText)
     }
 }

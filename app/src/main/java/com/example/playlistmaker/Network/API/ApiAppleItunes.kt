@@ -7,7 +7,6 @@ import retrofit2.http.Query
 
 //создаем интерфейс по работе с API
 interface ApiAppleItunes {
-
     @GET("/search?entity=song ")
     fun search(@Query("term") text: String) : Call<TrackResponse>
 

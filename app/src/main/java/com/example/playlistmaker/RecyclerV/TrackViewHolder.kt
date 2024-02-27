@@ -23,11 +23,13 @@ class TrackViewHolder(parentView: ViewGroup) : RecyclerView.ViewHolder(
         .inflate(R.layout.track_view, parentView, false)
 ) {
 
+    //связка объектов с элементами представления
     private val trackName: TextView = itemView.findViewById(R.id.trackName)
     private val artistName: TextView = itemView.findViewById(R.id.trackАuthor)
     private val trackTime: TextView = itemView.findViewById(R.id.trackTime)
     private val url: ImageView = itemView.findViewById(R.id.trackIco)
 
+    //поиск трека и присвоение элементам View значений
     fun bind(bindTrack: Track) {
         trackName.text = bindTrack.trackName
         artistName.text = bindTrack.artistName
