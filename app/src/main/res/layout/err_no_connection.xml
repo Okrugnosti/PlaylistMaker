@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/ErrorTextStyleNightBackGround"
+    >
 
     <ImageView
-        style="@style/ErrorImageStyle"
+        style="@style/ErrorImageStyleNoConnect"
         android:layout_marginStart="@dimen/mar_120dp"
         android:layout_marginTop="@dimen/mar_102dp"
-        android:layout_marginEnd="@dimen/mar_120dp"
-        android:src="@drawable/connec_no">
+        android:layout_marginEnd="@dimen/mar_120dp">
     </ImageView>
 
     <TextView

@@ -118,13 +118,11 @@ class SearchActivity : AppCompatActivity() {
                     call: Call<TrackResponse>,
                     response: Response<TrackResponse>
                 ) {
-                    Log.d("RESPONSE_CODE", "Status code: ${response.code()}")
-                    Log.d("RESPONSE_BODY", "Status code: ${response.body()?.resultations}")
 
                     if (response.code() == COD200) {
                         tracks.clear()
-                        if (response.body()?.resultations?.isNotEmpty() == true) {
-                            tracks.addAll(response.body()?.resultations!!)
+                        if (response.body()?.results?.isNotEmpty() == true) {
+                            tracks.addAll(response.body()?.results!!)
                             trackAdapter.notifyDataSetChanged()
                             setStatus(SearchStatus.COD200)
                         }

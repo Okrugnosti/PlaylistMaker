@@ -4,6 +4,6 @@ import com.example.playlistmaker.RecyclerV.Track
 
 //реализация класса с ответом по API
 class TrackResponse(
-    val resCount: Int,
-    val resultations: Array<Track>
+    val resultCount: Int,
+    val results: Array<Track>
 )

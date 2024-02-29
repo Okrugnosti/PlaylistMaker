@@ -16,7 +16,6 @@ import java.util.Locale
 
 
 //формирование по шаблону объекта
-//class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
 class TrackViewHolder(parentView: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parentView.context)

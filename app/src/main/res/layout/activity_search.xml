@@ -12,7 +12,8 @@
     <FrameLayout
         android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
-        android:paddingVertical = "@dimen/paddingVertical20">
+        android:paddingTop = "1dp"
+        android:paddingBottom = "20dp">
 
         <ImageView
             android:id="@+id/search_vector"
