@@ -22,11 +22,6 @@ class SettingsActivity : AppCompatActivity() {
         //НАЗАД В ГЛАВНОЕ МЕНЮ
         settingButton.setOnClickListener {
             /*
-            val displayIntent = Intent(this, MainActivity::class.java)
-            startActivity(displayIntent)
-            */
-
-            /*
             Для перехода назад стоит использовать не интент, а методы finish() или onBackPressed(),
             потому что иначе вместо возврата в предыдущий экран создается новый экземпляр MainActivity
              */

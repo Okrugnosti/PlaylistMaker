@@ -1,8 +1,10 @@
 package com.example.playlistmaker.RecyclerV
 
+import com.google.gson.annotations.SerializedName
+
 data class Track(
     val trackName: String, // Название композиции
     val artistName: String, // Имя исполнителя
-    val trackTime: String, // Продолжительность трека
+    @SerializedName("trackTimeMillis") val trackTime: Long,
     val artworkUrl100: String // Ссылка на изображение обложки
 )

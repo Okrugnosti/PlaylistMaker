@@ -22,34 +22,40 @@
     <dimen name="marginTop">8dp</dimen>
     <dimen name="padding">16dp</dimen>
 
+    <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_14sp">14sp</dimen>
+    <dimen name="text_19sp">19sp</dimen>
+    <dimen name="margin_13dp">13dp</dimen>
 
+//размеры для error
 
-
-
-//
-    <dimen name="margin_120dp">120dp</dimen>
-    <dimen name="image_square_120dp">120dp</dimen>
-    <dimen name="dp_106">106dp</dimen>
-    <dimen name="margin_102dp">102dp</dimen>
-    <dimen name="dp_46">46dp</dimen>
-    <dimen name="cover_size">45dp</dimen>
-    <dimen name="margin_34dp">34dp</dimen>
-    <dimen name="dp_30">30dp</dimen>
     <dimen name="dp_26">26dp</dimen>
-    <dimen name="margin_24dp">24dp</dimen>
-    <dimen name="frame_padding">21dp</dimen>
+    <dimen name="mar_24dp">24dp</dimen>
+    <dimen name="frame_pad">21dp</dimen>
     <dimen name="dp_20">20dp</dimen>
-    <dimen name="margin_18dp">18dp</dimen>
+    <dimen name="mar_18dp">18dp</dimen>
     <dimen name="corner_radius">16dp</dimen>
     <dimen name="padding_all_around">16dp</dimen>
-    <dimen name="margin_16dp">16dp</dimen>
-    <dimen name="margin_14dp">14dp</dimen>
-    <dimen name="tv_margin">14dp</dimen>
-    <dimen name="margin_12dp">12dp</dimen>
-    <dimen name="bottom_margin">10dp</dimen>
+    <dimen name="mar_16dp">16dp</dimen>
+    <dimen name="mar_14dp">14dp</dimen>
+    <dimen name="tv_mar">14dp</dimen>
+    <dimen name="mar_12dp">12dp</dimen>
+    <dimen name="bottom_mar">10dp</dimen>
     <dimen name="card_radius">8dp</dimen>
-    <dimen name="iv_margin">8dp</dimen>
-    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="iv_mar">8dp</dimen>
+    <dimen name="mar_8dp">8dp</dimen>
     <dimen name="dp_4">4dp</dimen>
+    <dimen name="head_text">22sp</dimen>
+
+
+    <dimen name="dp_46">46dp</dimen>
+    <dimen name="cover_size">45dp</dimen>
+    <dimen name="mar_34dp">34dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+
+    <dimen name="mar_120dp">120dp</dimen>
+    <dimen name="image_120dp">120dp</dimen>
+    <dimen name="dp_106">106dp</dimen>
+    <dimen name="mar_102dp">102dp</dimen>
 
 </resources>
