@@ -33,18 +33,16 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
+        style="@style/ButtonClearSearch"
         android:id="@+id/delete_history_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/mar_34dp"
         android:layout_marginBottom="@dimen/mar_34dp"
-        android:backgroundTint="@color/black"
         android:fontFamily="@font/ys_display_medium"
         android:text="@string/cle_his_search"
-        android:textColor="@color/white"
         android:textSize="@dimen/text_14sp">
-
     </Button>
 
 </LinearLayout>

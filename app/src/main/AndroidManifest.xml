@@ -22,7 +22,7 @@
             android:name=".MediaActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchActivity"
+            android:name=".Search.SearchActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
