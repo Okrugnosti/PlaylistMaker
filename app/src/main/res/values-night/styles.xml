@@ -41,6 +41,10 @@
 
 
     <!-- Setting Activity Night-->
+    <style name="SettingActivityDayLinearLayout">
+        <item name="android:background">@color/black</item>
+    </style>
+
 
     <style name="SettingActivityDayTextView">
         <item name="android:textColor">@color/white</item>
