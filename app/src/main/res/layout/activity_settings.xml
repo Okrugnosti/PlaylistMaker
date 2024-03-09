@@ -53,7 +53,7 @@
             android:fontFamily="@font/ys_display_regular"
             android:text="@string/t2"
             android:textAllCaps="false"
-            android:textSize="@dimen/textSize20" />
+            android:textSize="@dimen/text_20sp" />
 
     </FrameLayout>
 
@@ -70,7 +70,7 @@
             android:layout_gravity="start"
             android:fontFamily="@font/ys_display_regular"
             android:text="@string/t3"
-            android:textSize="@dimen/textSize20" />
+            android:textSize="@dimen/text_20sp" />
 
         <ImageView
             android:id="@+id/sendLinks"
@@ -94,7 +94,7 @@
             android:layout_gravity="start"
             android:fontFamily="@font/ys_display_regular"
             android:text="@string/t4"
-            android:textSize="@dimen/textSize20" />
+            android:textSize="@dimen/text_20sp" />
 
         <ImageView
             android:id="@+id/mailSupport"
@@ -117,7 +117,7 @@
             android:layout_gravity="start"
             android:fontFamily="@font/ys_display_regular"
             android:text="@string/t5"
-            android:textSize="@dimen/textSize20" />
+            android:textSize="@dimen/text_20sp" />
 
         <ImageView
             android:id="@+id/links"
