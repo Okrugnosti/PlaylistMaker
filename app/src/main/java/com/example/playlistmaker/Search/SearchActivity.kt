@@ -33,6 +33,7 @@ class SearchActivity : AppCompatActivity() {
     companion object {
         const val SEARCH_INPUT = "SEARCH_INPUT"
         const val SUCCESS = 200
+        const val LISTSIZE = 10
     }
 
     //ответы от сервера API
@@ -61,7 +62,7 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var historySearch: HistorySearch
 
     private val tracks = ArrayList<Track>()
-    private val historyTracks = ArrayList<Track>()
+    private val historyTracks = ArrayList<Track>() //массив треков
 
     //объекты API и Retrofit
     private val baseUrl = "https://itunes.apple.com"
@@ -78,9 +79,10 @@ class SearchActivity : AppCompatActivity() {
 
         historySearch = HistorySearch(getSharedPreferences(HISTORY_KEY, MODE_PRIVATE))
 
-        initViews()
-        setupListeners()
-        setupAdapters()
+        initViews() //инициализация элементов View
+        setupAdapters() //создание адаптеров
+        setupListeners() //реализация кнопок
+
     }
 
     //привязка элементов View
@@ -89,8 +91,7 @@ class SearchActivity : AppCompatActivity() {
         clearButton = findViewById(R.id.clearButtonSearch) //кнопка очистки текста
         enterTextButton = findViewById(R.id.editTextSearch) //поле ввода текста на клавиатуре
         refresh = findViewById(R.id.refreshButton) //обновление запроса
-        clearHistoryButton =
-            findViewById(R.id.delete_history_button) //кнопка очистки истории поиска
+        clearHistoryButton = findViewById(R.id.delete_history_button) //кнопка очистки истории поиска
         recyclerTrack = findViewById(R.id.recyclerView) //ссылка на форму "списка треков"
         recyclerHistoryTrack = findViewById(R.id.recycler_history) //ссылка на форму "списка треков"
         errNotFound = findViewById(R.id.err_not_found) //запуск формы нет данных
@@ -116,25 +117,39 @@ class SearchActivity : AppCompatActivity() {
         val historyTrackAdapter = TrackAdapter {
             //переход на трек
         }
+
         historyTrackAdapter.recentTracks = historyTracks
         recyclerHistoryTrack.adapter = historyTrackAdapter
     }
 
     private fun setupListeners() {
+        //нажатие на кнопку "назад"
         backButton.setOnClickListener { finish() }
+
+        //надажтие на кнопку "обновить"
         refresh.setOnClickListener { search() }
 
+        //нажатие на кнопку "очистить"
         clearButton.setOnClickListener {
             enterTextButton.text = null
             val inputMethodManager =
                 getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             inputMethodManager?.hideSoftInputFromWindow(enterTextButton.windowToken, 0)
+
             recyclerTrack.visibility = View.GONE
             if (historyTracks.isEmpty()) {
                 setStatus(SearchStatus.ALL_GONE)
+
             } else setStatus(SearchStatus.HISTORY)
+            Log.d("recyclerTrack.visibility", "On")
         }
 
+        //в historyTracks живет список треков. как найти клики по списку
+        //recyclerTrack визуализирует список треков
+        //посмотреть события, при нажатии на иконки в списке поиска searchHistoryFragment.visibility = View.VISIBLE
+        //где происходит добавление трека в ИсториюПоиска
+
+        //ввод текста на клавиатуре
         enterTextButton.apply { requestFocus() }
         enterTextButton.doOnTextChanged { text, _, _, _ ->
             if (text.isNullOrEmpty()) {
@@ -163,16 +178,20 @@ class SearchActivity : AppCompatActivity() {
         enterTextButton.setOnFocusChangeListener { view, hasFocus ->
             searchHistoryFragment.visibility =
                 if (hasFocus && enterTextButton.text.isEmpty()) View.VISIBLE else View.GONE
+            Log.d("enterTextButton.setOnFocusChangeListener", "On")
         }
 
+        //очистка списка треков
         clearHistoryButton.setOnClickListener {
-            historySearch.clearHistory()
+            historySearch.clearHistory() //экземпляр объекта HistorySearch
             searchHistoryFragment.visibility = View.GONE
-            historyTracks.clear()
+            historyTracks.clear() //historyTracks - список треков.
             recyclerHistoryTrack.adapter?.notifyDataSetChanged()
+            Log.d("clearHistoryButton.setOnClickListener", "On")
         }
     }
 
+    //сохранение истории поиска
     override fun onStop() {
         super.onStop()
         historySearch.saveHistory(historyTracks)
@@ -249,23 +268,28 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
-    //сохранение истории поиска
+    //проверка и добавление трека в историю поиска
     private fun addToRecentHistoryList(track: Track) {
+
+        //поиск трека в истории historyTracks ArrayList<Track>
         for (index in historyTracks.indices) {
             if (historyTracks[index].trackId == track.trackId) {
-                historyTracks.removeAt(index)
-                historyTracks.add(0, track)
+                historyTracks.removeAt(index) //если найден трек в истории по ID удаляем его
+                historyTracks.add(0, track) //и добавляем в начало списка
                 recyclerHistoryTrack.adapter?.notifyItemMoved(index, 0)
                 return
+                Log.d("addToRecentHistoryList", "removeAt: ${track.trackId}")
             }
         }
-        if (historyTracks.size < 10) {
+        // задаем размер списка LISTSIZE = 10
+        if (historyTracks.size < LISTSIZE) {
             historyTracks.add(0, track)
             recyclerHistoryTrack.adapter?.notifyItemInserted(0)
             recyclerHistoryTrack.adapter?.notifyItemRangeChanged(
                 0,
                 historyTracks.size
             )
+            Log.d("addToRecentHistoryList", "historyTracks.size < 10: ${track.trackId}")
         } else {
             historyTracks.removeAt(9)
             recyclerHistoryTrack.adapter?.notifyItemRemoved(0)
@@ -273,6 +297,7 @@ class SearchActivity : AppCompatActivity() {
                 9,
                 historyTracks.size
             )
+            Log.d("addToRecentHistoryList", "removeAt ${track.trackId}")
         }
     }
 

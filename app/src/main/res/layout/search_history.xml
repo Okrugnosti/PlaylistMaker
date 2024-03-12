@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        style="@style/ErrorTextStyle"
+        style="@style/SearchHistoryText"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_marginStart="@dimen/mar_16dp"
@@ -15,21 +15,19 @@
         android:layout_marginEnd="@dimen/mar_16dp"
         android:layout_marginBottom="@dimen/mar_12dp"
         android:paddingTop="@dimen/mar_24dp"
-        android:text="@string/search_head"
-        android:textColor="@color/black">
+        android:text="@string/search_head">
 
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_history"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginTop="@dimen/padding_all_around"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/track_view">
-
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
@@ -42,6 +40,7 @@
         android:layout_marginBottom="@dimen/mar_34dp"
         android:fontFamily="@font/ys_display_medium"
         android:text="@string/cle_his_search"
+        android:textAllCaps="false"
         android:textSize="@dimen/text_14sp">
     </Button>
 
