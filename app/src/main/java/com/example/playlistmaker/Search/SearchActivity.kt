@@ -122,6 +122,7 @@ class SearchActivity : AppCompatActivity() {
         val historyTrackAdapter = TrackAdapter {
             //переход на трек
             addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
+
         }
 
         historyTrackAdapter.recentTracks = historyTracks
@@ -159,10 +160,10 @@ class SearchActivity : AppCompatActivity() {
         enterTextButton.apply {
             requestFocus()
             clearButton.visibility = View.GONE
-            recyclerTrack.visibility = View.GONE
 
             if (historyTracks.isEmpty()) {
                 setStatus(SearchStatus.ALL_GONE)
+                searchHistoryFragment.visibility = View.GONE
 
             } else setStatus(SearchStatus.HISTORY)
             Log.d("recyclerTrack.visibility", "On")
@@ -173,6 +174,7 @@ class SearchActivity : AppCompatActivity() {
         enterTextButton.doOnTextChanged { text, _, _, _ ->
             if (text.isNullOrEmpty()) {
                 clearButton.visibility = View.GONE
+
                 if (historyTracks.isEmpty()) {
                     setStatus(SearchStatus.ALL_GONE)
                 } else setStatus(SearchStatus.HISTORY)
@@ -281,7 +283,7 @@ class SearchActivity : AppCompatActivity() {
             }
 
             SearchStatus.ALL_GONE -> {
-                searchHistoryFragment.visibility = View.VISIBLE
+                searchHistoryFragment.visibility = View.GONE
                 errNoConnect.visibility = View.GONE
                 errNotFound.visibility = View.GONE
                 recyclerTrack.visibility = View.GONE
@@ -292,6 +294,7 @@ class SearchActivity : AppCompatActivity() {
     //проверка и добавление трека в историю поиска (поиск, в ТОП-1, удаление дубликата)
     private fun addToRecentHistoryList(track: Track) {
 
+        Log.d("addToRecentHistoryList", "start: ${track.trackId}")
         //поиск трека в истории historyTracks ArrayList<Track>
         for (index in historyTracks.indices) {
             if (historyTracks[index].trackId == track.trackId) {
@@ -299,8 +302,8 @@ class SearchActivity : AppCompatActivity() {
                 historyTracks.add(0, track) //и добавляем в начало списка
                 recyclerHistoryTrack.adapter?.notifyItemMoved(index, 0)
                 return
-                Log.d("addToRecentHistoryList", "removeAt: ${track.trackId}")
             }
+            Log.d("addToRecentHistoryList", "removeAt: ${track.trackId}")
         }
         // задаем размер списка LISTSIZE = 10
         if (historyTracks.size < LISTSIZE) {
@@ -310,7 +313,7 @@ class SearchActivity : AppCompatActivity() {
                 0,
                 historyTracks.size
             )
-            Log.d("addToRecentHistoryList", "historyTracks.size < 10: ${track.trackId}")
+            Log.d("addToRecentHistoryList", "historyTracks.size < 10")
         } else {
             historyTracks.removeAt(9)
             recyclerHistoryTrack.adapter?.notifyItemRemoved(0)
@@ -318,7 +321,7 @@ class SearchActivity : AppCompatActivity() {
                 9,
                 historyTracks.size
             )
-            Log.d("addToRecentHistoryList", "removeAt ${track.trackId}")
+            Log.d("addToRecentHistoryList", "historyTracks.size > 10")
         }
     }
 
