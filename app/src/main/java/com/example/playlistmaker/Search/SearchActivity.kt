@@ -80,8 +80,9 @@ class SearchActivity : AppCompatActivity() {
         historySearch = HistorySearch(getSharedPreferences(HISTORY_KEY, MODE_PRIVATE))
 
         initViews() //инициализация элементов View
-        setupAdapters() //создание адаптеров
         setupListeners() //реализация кнопок
+        setupAdapters() //создание адаптеров
+
 
     }
 
@@ -105,17 +106,22 @@ class SearchActivity : AppCompatActivity() {
         if (historyTracks.isNotEmpty())
             searchHistoryFragment.visibility = View.VISIBLE
 
+        //кликаем на трек в РЕЗУЛЬТАТАХ поиска
         val trackAdapter = TrackAdapter {
-            addToRecentHistoryList(it)
+            addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
 
             //переход на трек и удаление "тоста"
             Toast.makeText(this, "clicked", Toast.LENGTH_LONG).show()
         }
+
         trackAdapter.recentTracks = tracks
         recyclerTrack.adapter = trackAdapter
 
+
+        //кликаем по трекам в списке истории поиска
         val historyTrackAdapter = TrackAdapter {
             //переход на трек
+            addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
         }
 
         historyTrackAdapter.recentTracks = historyTracks
@@ -149,8 +155,21 @@ class SearchActivity : AppCompatActivity() {
         //посмотреть события, при нажатии на иконки в списке поиска searchHistoryFragment.visibility = View.VISIBLE
         //где происходит добавление трека в ИсториюПоиска
 
-        //ввод текста на клавиатуре
-        enterTextButton.apply { requestFocus() }
+        //ввод текста на клавиатуре - наводим фокус
+        enterTextButton.apply {
+            requestFocus()
+            clearButton.visibility = View.GONE
+            recyclerTrack.visibility = View.GONE
+
+            if (historyTracks.isEmpty()) {
+                setStatus(SearchStatus.ALL_GONE)
+
+            } else setStatus(SearchStatus.HISTORY)
+            Log.d("recyclerTrack.visibility", "On")
+        }
+
+
+
         enterTextButton.doOnTextChanged { text, _, _, _ ->
             if (text.isNullOrEmpty()) {
                 clearButton.visibility = View.GONE
@@ -158,10 +177,11 @@ class SearchActivity : AppCompatActivity() {
                     setStatus(SearchStatus.ALL_GONE)
                 } else setStatus(SearchStatus.HISTORY)
             } else {
-                clearButton.visibility = View.VISIBLE
+                clearButton.visibility = View.VISIBLE //показывает крестик, если текст заполен
                 searchHistoryFragment.visibility = View.GONE
             }
         }
+
         enterTextButton.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 if (enterTextButton.text.isNotEmpty())
@@ -175,6 +195,7 @@ class SearchActivity : AppCompatActivity() {
             }
             false
         }
+
         enterTextButton.setOnFocusChangeListener { view, hasFocus ->
             searchHistoryFragment.visibility =
                 if (hasFocus && enterTextButton.text.isEmpty()) View.VISIBLE else View.GONE
@@ -260,7 +281,7 @@ class SearchActivity : AppCompatActivity() {
             }
 
             SearchStatus.ALL_GONE -> {
-                searchHistoryFragment.visibility = View.GONE
+                searchHistoryFragment.visibility = View.VISIBLE
                 errNoConnect.visibility = View.GONE
                 errNotFound.visibility = View.GONE
                 recyclerTrack.visibility = View.GONE
@@ -268,7 +289,7 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
-    //проверка и добавление трека в историю поиска
+    //проверка и добавление трека в историю поиска (поиск, в ТОП-1, удаление дубликата)
     private fun addToRecentHistoryList(track: Track) {
 
         //поиск трека в истории historyTracks ArrayList<Track>
