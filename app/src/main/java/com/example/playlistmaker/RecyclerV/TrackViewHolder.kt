@@ -30,7 +30,7 @@ class TrackViewHolder(parentView: ViewGroup) : RecyclerView.ViewHolder(
 
     //поиск трека и присвоение элементам View значений
     fun bind(bindTrack: Track) {
-        trackName.text = bindTrack.trackId
+        trackName.text = bindTrack.trackName
         artistName.text = bindTrack.artistName
         trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(bindTrack.trackTime)
 
