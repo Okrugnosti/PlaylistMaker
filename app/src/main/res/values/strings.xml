@@ -21,8 +21,10 @@
     <string name="g4">https://practicum.yandex.ru/android-developer/</string>
     <string name="g5">em2s@gmail.com</string>
 
-    <string name="nothing_found">Ничего не нашлось</string>
-    <string name="connections_issue">Проблемы со связью \n\nЗагрузка не удалась проверьте подключение к интернету</string>
+    <string name="not_found">Ничего не нашлось</string>
+    <string name="not_connect">Проблемы со связью \n\nЗагрузка не удалась проверьте подключение к интернету</string>
     <string name="refresh">Обновить</string>
 
+    <string name="cle_his_search">Очистить историю</string>
+    <string name="search_head">Вы искали</string>
 </resources>

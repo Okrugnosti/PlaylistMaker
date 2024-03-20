@@ -19,7 +19,7 @@
         android:layout_marginStart="@dimen/mar_24dp"
         android:layout_marginTop="@dimen/mar_16dp"
         android:layout_marginEnd="@dimen/mar_24dp"
-        android:text="@string/connections_issue"
+        android:text="@string/not_connect"
         android:textAlignment="center">
     </TextView>
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SearchActivity">
+    tools:context=".Search.SearchActivity">
 
     <FrameLayout
         android:layout_width = "match_parent"
@@ -86,6 +86,10 @@
 
     <include layout="@layout/err_no_connection"
         android:id="@+id/err_no_connection"
+        android:visibility="gone"/>
+
+    <include layout="@layout/search_history"
+        android:id="@+id/search_history_fragment"
         android:visibility="gone"/>
 
 </LinearLayout>

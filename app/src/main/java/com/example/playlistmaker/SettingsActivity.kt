@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -17,7 +18,13 @@ class SettingsActivity : AppCompatActivity() {
         val sendLinks = findViewById<ImageView>(R.id.sendLinks)
         val mailSupport = findViewById<ImageView>(R.id.mailSupport)
         val links = findViewById<ImageView>(R.id.links)
+        val themeSwitcher = findViewById<SwitchMaterial>(R.id.themeSwitcher)
 
+        //реализация переключателя светлой/темной темы
+        themeSwitcher.isChecked = (applicationContext as App).darkTheme
+        themeSwitcher.setOnCheckedChangeListener { switcher, checked ->
+            (applicationContext as App).switchTheme(checked)
+        }
 
         //НАЗАД В ГЛАВНОЕ МЕНЮ
         settingButton.setOnClickListener {
