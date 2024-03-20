@@ -27,4 +27,11 @@
 
     <string name="cle_his_search">Очистить историю</string>
     <string name="search_head">Вы искали</string>
+
+    <string name="text_duration">Длительность</string>
+    <string name="text_album">Альбом</string>
+    <string name="text_year">Год</string>
+    <string name="text_genre">Жанр</string>
+    <string name="text_country">Страна</string>
+
 </resources>

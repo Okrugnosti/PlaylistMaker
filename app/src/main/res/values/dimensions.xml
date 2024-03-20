@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="text_11sp">11sp</dimen>
+    <dimen name="textSize_13sp">13sp</dimen>
+    <dimen name="text_14sp">14sp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_19sp">19sp</dimen>
+    <dimen name="text_20sp">20sp</dimen>
     <dimen name="textSize">26sp</dimen>
+
     <dimen name="bottom_mar">10dp</dimen>
     <dimen name="bottom_margin">10dp</dimen>
     <dimen name="card_radius">8dp</dimen>
@@ -9,12 +16,14 @@
     <dimen name="cover_size">45dp</dimen>
 
     <dimen name="dp_106">106dp</dimen>
+    <dimen name="dp_46">46dp</dimen>
+    <dimen name="dp_54">54dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_26">26dp</dimen>
-    <dimen name="dp_30">30dp</dimen>
-    <dimen name="dp_4">4dp</dimen>
-    <dimen name="dp_46">46dp</dimen>
     <dimen name="dp10">10dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
 
     <dimen name="frame_pad">21dp</dimen>
     <dimen name="frame_padding">21dp</dimen>
@@ -47,12 +56,6 @@
     <dimen name="padding">16dp</dimen>
     <dimen name="padding_all_around">16dp</dimen>
     <dimen name="paddingVertical20">20dp</dimen>
-
-    <dimen name="text_11sp">11sp</dimen>
-    <dimen name="text_14sp">14sp</dimen>
-    <dimen name="text_16sp">16sp</dimen>
-    <dimen name="text_19sp">19sp</dimen>
-    <dimen name="text_20sp">20sp</dimen>
 
     <dimen name="tv_mar">14dp</dimen>
 
