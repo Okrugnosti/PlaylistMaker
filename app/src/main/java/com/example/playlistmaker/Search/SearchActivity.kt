@@ -25,6 +25,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import android.content.Intent
+import com.example.playlistmaker.PlayerActivity
 
 
 class SearchActivity : AppCompatActivity() {
@@ -115,7 +117,8 @@ class SearchActivity : AppCompatActivity() {
             addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
 
             //переход на трек и удаление "тоста"
-            Toast.makeText(this, "clicked", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "clicked", Toast.LENGTH_LONG).show()
+            transferDataToPlayerActivity(it)
         }
 
         trackAdapter.recentTracks = tracks
@@ -126,7 +129,8 @@ class SearchActivity : AppCompatActivity() {
         val historyTrackAdapter = TrackAdapter {
             Log.d("historyTrackAdapter", "addToRecentHistoryList")
             //переход на трек
-            addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
+            //addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
+            transferDataToPlayerActivity(it)
         }
 
         Log.d("historyTrackAdapter", "historyTracks")
@@ -134,6 +138,14 @@ class SearchActivity : AppCompatActivity() {
         recyclerHistoryTrack.adapter = historyTrackAdapter
 
     }
+
+    //переход на Плэйер
+    private fun transferDataToPlayerActivity(track: Track) {
+        val intent: Intent = Intent(this, PlayerActivity::class.java)
+        intent.putExtra(SEARCH_INPUT, track)
+        startActivity(intent)
+    }
+
 
     private fun setupListeners() {
         //нажатие на кнопку "назад"

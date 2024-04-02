@@ -195,8 +195,20 @@
         <item name="android:backgroundTint">@color/white</item>
     </style>
 
-    <style name="play_button">
+    <style name="PlayerButtonPlay">
         <item name="android:src">@drawable/play_day</item>
     </style>
+
+    <style name="PlayerButtonAdd">
+        <item name="android:src">@drawable/add_to_track</item>
+    </style>
+
+    <style name="PlayerButtonLike">
+        <item name="android:src">@drawable/like_to_click</item>
+    </style>
+
+
+
+
 
 </resources>

@@ -195,7 +195,17 @@
         <item name="android:backgroundTint">@color/black</item>
     </style>
 
-    <style name="play_button">
+    <style name="PlayerButtonPlay">
         <item name="android:src">@drawable/play_night</item>
     </style>
+
+    <style name="PlayerButtonAdd">
+        <item name="android:src">@drawable/add_to_track_night</item>
+    </style>
+
+    <style name="PlayerButtonLike">
+        <item name="android:src">@drawable/like_to_click_night</item>
+    </style>
+
+
 </resources>

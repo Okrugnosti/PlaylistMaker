@@ -89,19 +89,19 @@
         android:id="@+id/button_add_track"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/add_track_add"/>
+        style="@style/PlayerButtonAdd"/>
 
     <ImageView
         android:id="@+id/button_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/play_button"/>
+        style="@style/PlayerButtonPlay"/>
 
     <ImageView
         android:id="@+id/button_like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/like_click_click"/>
+        style="@style/PlayerButtonLike"/>
 
     <TextView
         android:id="@+id/time_track"
