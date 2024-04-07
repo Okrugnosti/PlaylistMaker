@@ -173,7 +173,7 @@
     <item name="android:textSize">@dimen/textSize_13sp</item>
     <item name="android:textColor">@color/gray</item>
     <item name="android:layout_marginStart">@dimen/mar_16dp</item>
-    <item name="android:layout_marginTop">8dp</item>
+    <item name="android:layout_marginTop">18dp</item>
         <item name="android:layout_marginBottom">@dimen/mar_8dp</item>
     </style>
 
@@ -182,7 +182,7 @@
         <item name="android:textSize">@dimen/textSize_13sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_marginEnd">@dimen/mar_16dp</item>
-        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginTop">18dp</item>
         <item name="android:layout_marginBottom">@dimen/mar_8dp</item>
     </style>
 

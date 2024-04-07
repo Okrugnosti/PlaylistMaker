@@ -29,6 +29,9 @@ class PlayerActivity : AppCompatActivity() {
     private val tvSongYear: TextView by lazy { findViewById(R.id.track_year) }
     private val tvSongGenre: TextView by lazy { findViewById(R.id.track_genre) }
     private val tvSongCountry: TextView by lazy { findViewById(R.id.track_artist_country) }
+    private val tvTimeTrack: TextView by lazy { findViewById(R.id.time_track) }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +50,10 @@ class PlayerActivity : AppCompatActivity() {
             .into(ivSongCover)
 
         tvSongDuration.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(track.trackTime)
+
+        //отображение времени проигрывания, до реализации логики проигрывания трека
+        tvTimeTrack.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(track.trackTime)
+
         tvSongAlbum.text = if (track.collectionName.isNullOrEmpty()) ({
             tvSongAlbum.visibility = View.GONE
             tvAlbumTitle.visibility = View.GONE
