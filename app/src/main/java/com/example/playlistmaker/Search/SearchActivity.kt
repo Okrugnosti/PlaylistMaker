@@ -27,6 +27,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import android.content.Intent
 import com.example.playlistmaker.PlayerActivity
+import android.os.Handler
+import android.os.Looper
+import android.widget.ProgressBar
 
 
 class SearchActivity : AppCompatActivity() {
@@ -36,10 +39,13 @@ class SearchActivity : AppCompatActivity() {
         const val SEARCH_INPUT = "SEARCH_INPUT"
         const val SUCCESS = 200
         const val LISTSIZE = 10
+        const val CLICK_DEBOUNCE_DELAY = 1000L
+        const val SEARCH_DEBOUNCE_DELAY = 2000L
     }
 
     //ответы от сервера API
     enum class SearchStatus {
+        PROGRESS,
         CONNECTION_ERROR,
         EMPTY_SEARCH,
         SUCCESS,
@@ -62,9 +68,14 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var searchHistoryFragment: LinearLayout
 
     private lateinit var historySearch: HistorySearch
+    private lateinit var progressBar: ProgressBar
 
     private val tracks = ArrayList<Track>()
     private val historyTracks = ArrayList<Track>() //массив треков
+
+    private var isClickAllowed = true
+    private val handler = Handler(Looper.getMainLooper())
+    private val searchRunnable = Runnable { search() }
 
     //объекты API и Retrofit
     private val baseUrl = "https://itunes.apple.com"
@@ -84,8 +95,6 @@ class SearchActivity : AppCompatActivity() {
         initViews() //инициализация элементов View
         setupListeners() //реализация кнопок
         setupAdapters() //создание адаптеров
-
-
     }
 
     //привязка элементов View
@@ -94,7 +103,9 @@ class SearchActivity : AppCompatActivity() {
         clearButton = findViewById(R.id.clearButtonSearch) //кнопка очистки текста
         enterTextButton = findViewById(R.id.editTextSearch) //поле ввода текста на клавиатуре
         refresh = findViewById(R.id.refreshButton) //обновление запроса
-        clearHistoryButton = findViewById(R.id.delete_history_button) //кнопка очистки истории поиска
+        clearHistoryButton =
+            findViewById(R.id.delete_history_button) //кнопка очистки истории поиска
+        progressBar = findViewById(R.id.progressBar) // запуск прогрессбара
         recyclerTrack = findViewById(R.id.recyclerView) // форму "списка треков" на экране Поиск
         recyclerHistoryTrack = findViewById(R.id.recycler_history) // шаблоны формы "списка треков"
         errNotFound = findViewById(R.id.err_not_found) //запуск формы нет данных
@@ -114,11 +125,17 @@ class SearchActivity : AppCompatActivity() {
         //кликаем на трек в РЕЗУЛЬТАТАХ поиска
         val trackAdapter = TrackAdapter {
             Log.d("trackAdapter", "addToRecentHistoryList")
-            addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
 
+            //addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
             //переход на трек и удаление "тоста"
             //Toast.makeText(this, "clicked", Toast.LENGTH_LONG).show()
-            transferDataToPlayerActivity(it)
+            //transferDataToPlayerActivity(it)
+
+            if (clickDebounce()) {
+                addToRecentHistoryList(it)
+                transferDataToPlayerActivity(it)
+            }
+
         }
 
         trackAdapter.recentTracks = tracks
@@ -130,7 +147,11 @@ class SearchActivity : AppCompatActivity() {
             Log.d("historyTrackAdapter", "addToRecentHistoryList")
             //переход на трек
             //addToRecentHistoryList(it) //запуск логики поиска треков в истории поиска (поиск, в ТОП-1, удаление дубликата)
-            transferDataToPlayerActivity(it)
+            //transferDataToPlayerActivity(it)
+
+            if (clickDebounce()) {
+                transferDataToPlayerActivity(it)
+            }
         }
 
         Log.d("historyTrackAdapter", "historyTracks")
@@ -208,6 +229,7 @@ class SearchActivity : AppCompatActivity() {
                     setStatus(SearchStatus.ALL_GONE)
                 } else setStatus(SearchStatus.HISTORY)
             } else {
+                searchDebounce()
                 clearButton.visibility = View.VISIBLE //показывает крестик, если текст заполен
                 searchHistoryFragment.visibility = View.GONE
             }
@@ -254,45 +276,70 @@ class SearchActivity : AppCompatActivity() {
         historySearch.saveHistory(historyTracks)
     }
 
+    //recyclerTrack
     //логика поиска и формирования списков
     private fun search() {
-        itunesService.search(enterTextButton.text.toString())
-            .enqueue(object : Callback<TrackResponse> {
-                @SuppressLint("NotifyDataSetChanged")
-                override fun onResponse(
-                    call: Call<TrackResponse>,
-                    response: Response<TrackResponse>
-                ) {
-                    Log.d("RESPONSE_CODE", "Status code: ${response.code()}")
-                    Log.d("RESPONSE_BODY", "Status code: ${response.body()?.results}")
-                    if (response.code() == SUCCESS) {
-                        tracks.clear()
-                        if (response.body()?.results?.isNotEmpty() == true) {
-                            tracks.addAll(response.body()?.results!!)
-                            recyclerTrack.adapter?.notifyDataSetChanged()
-                            setStatus(SearchStatus.SUCCESS)
-                        }
-                        if (tracks.isEmpty()) {
-                            setStatus(SearchStatus.EMPTY_SEARCH)
+        if (enterTextButton.text.isNotEmpty()) {
+            setStatus(SearchStatus.PROGRESS)
+            itunesService.search(enterTextButton.text.toString())
+                .enqueue(object : Callback<TrackResponse> {
+                    @SuppressLint("NotifyDataSetChanged")
+                    override fun onResponse(
+                        call: Call<TrackResponse>,
+                        response: Response<TrackResponse>
+                    ) {
+                        if (response.code() == SUCCESS) {
+                            tracks.clear()
+                            if (response.body()?.results?.isNotEmpty() == true) {
+                                tracks.addAll(response.body()?.results!!)
+                                recyclerTrack.adapter?.notifyDataSetChanged()
+                                setStatus(SearchStatus.SUCCESS)
+                            }
+                            if (tracks.isEmpty()) {
+                                setStatus(SearchStatus.EMPTY_SEARCH)
+                            }
                         }
                     }
-                }
 
-                override fun onFailure(call: Call<TrackResponse>, t: Throwable) {
-                    setStatus(SearchStatus.CONNECTION_ERROR)
-                }
+                    override fun onFailure(call: Call<TrackResponse>, t: Throwable) {
+                        setStatus(SearchStatus.CONNECTION_ERROR)
+                    }
+                })
+        }
+    }
 
-            })
+    private fun clickDebounce(): Boolean {
+        val current = isClickAllowed
+        if (isClickAllowed) {
+            isClickAllowed = false
+            handler.postDelayed({ isClickAllowed = true }, CLICK_DEBOUNCE_DELAY)
+        }
+        return current
+    }
+
+    private fun searchDebounce() {
+        handler.removeCallbacks(searchRunnable)
+        handler.postDelayed(searchRunnable, SEARCH_DEBOUNCE_DELAY)
     }
 
     //определение статуса от сервера и вывод визуализации представлений
     private fun setStatus(status: SearchStatus) {
         when (status) {
+            SearchStatus.PROGRESS -> {
+                progressBar.visibility = View.VISIBLE
+                searchHistoryFragment.visibility = View.GONE
+                errNoConnect.visibility = View.GONE
+                errNotFound.visibility = View.GONE
+                recyclerTrack.visibility = View.GONE
+            }
+
+
             SearchStatus.CONNECTION_ERROR -> {
                 errNoConnect.visibility = View.VISIBLE
                 searchHistoryFragment.visibility = View.GONE
                 recyclerTrack.visibility = View.GONE
                 errNotFound.visibility = View.GONE
+                progressBar.visibility = View.GONE
             }
 
             SearchStatus.EMPTY_SEARCH -> {
@@ -300,6 +347,7 @@ class SearchActivity : AppCompatActivity() {
                 searchHistoryFragment.visibility = View.GONE
                 errNoConnect.visibility = View.GONE
                 recyclerTrack.visibility = View.GONE
+                progressBar.visibility = View.GONE
             }
 
             SearchStatus.SUCCESS -> {
@@ -307,6 +355,8 @@ class SearchActivity : AppCompatActivity() {
                 searchHistoryFragment.visibility = View.GONE
                 errNoConnect.visibility = View.GONE
                 errNotFound.visibility = View.GONE
+                progressBar.visibility = View.GONE
+
             }
 
             SearchStatus.HISTORY -> {
@@ -314,6 +364,7 @@ class SearchActivity : AppCompatActivity() {
                 errNoConnect.visibility = View.GONE
                 errNotFound.visibility = View.GONE
                 recyclerTrack.visibility = View.GONE
+                progressBar.visibility = View.GONE
             }
 
             SearchStatus.ALL_GONE -> {
@@ -321,6 +372,7 @@ class SearchActivity : AppCompatActivity() {
                 errNoConnect.visibility = View.GONE
                 errNotFound.visibility = View.GONE
                 recyclerTrack.visibility = View.GONE
+                progressBar.visibility = View.GONE
             }
         }
     }
@@ -337,7 +389,7 @@ class SearchActivity : AppCompatActivity() {
 
                 //чтобы адаптер увидел изменения как по перемещению, так и по двигу остальных позиций
                 recyclerHistoryTrack.adapter?.notifyItemMoved(index, 0)
-                recyclerHistoryTrack.adapter?.notifyItemRangeChanged(0, index+1)
+                recyclerHistoryTrack.adapter?.notifyItemRangeChanged(0, index + 1)
                 return
             }
             Log.d("addToRecentHistoryList", "removeAt: ${track.trackId}")
@@ -362,7 +414,6 @@ class SearchActivity : AppCompatActivity() {
             Log.d("addToRecentHistoryList", "historyTracks.size > 10")
         }
     }
-
 
     //сохранение своих данных
     override fun onSaveInstanceState(outState: Bundle) {

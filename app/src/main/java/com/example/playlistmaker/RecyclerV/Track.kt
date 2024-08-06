@@ -7,6 +7,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Track(
+    val previewUrl: String, // в этот параметр iTunes Search API передаёт ссылку на отрывок трека в формате String
     val trackId: String, //ID композиции
     val trackName: String, // Название композиции
     val artistName: String?, // Имя исполнителя
