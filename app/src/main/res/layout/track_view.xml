@@ -2,83 +2,86 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/trackIco"
-        android:layout_width="@dimen/layout_width"
-        android:layout_height="@dimen/layout_width"
-        android:layout_marginStart="@dimen/marginStart"
-        android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginEnd="@dimen/marginTop"
-        android:layout_marginBottom="@dimen/marginTop"
+        android:id="@+id/songCover"
+        android:layout_width="@dimen/cover_size"
+        android:layout_height="@dimen/cover_size"
+        android:layout_marginStart="@dimen/tv_margin"
+        android:layout_marginTop="@dimen/iv_margin"
+        android:layout_marginEnd="@dimen/iv_margin"
+        android:layout_marginBottom="@dimen/iv_margin"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/trackName"
+        app:layout_constraintEnd_toStartOf="@+id/songName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/placeholder"/>
+        app:srcCompat="@drawable/placeholder" />
 
     <TextView
-        android:id="@+id/trackName"
+        android:id="@+id/songName"
         style="@style/SettingsText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginStartText"
+        android:layout_marginTop="@dimen/tv_margin"
         android:layout_marginBottom="1dp"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@id/trackАuthor"
+        android:textColor="?attr/color"
+        app:layout_constraintBottom_toTopOf="@id/songArtist"
         app:layout_constraintEnd_toStartOf="@id/nextArrow"
-        app:layout_constraintStart_toEndOf="@id/trackIco"
+        app:layout_constraintStart_toEndOf="@id/songCover"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="track Name" />
+        tools:text="No reply" />
 
     <TextView
-        android:id="@+id/trackАuthor"
+        android:id="@+id/songArtist"
         style="@style/SettingsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/marginTop"
+        android:layout_marginStart="@dimen/iv_margin"
         android:ellipsize="end"
         android:maxLines="1"
+        android:textColor="?attr/colorContainer"
         android:textSize="@dimen/text_11sp"
-        app:layout_constraintBottom_toBottomOf="@id/trackTime"
+        app:layout_constraintBottom_toBottomOf="@id/songDuration"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@id/trackIco"
-        app:layout_constraintTop_toBottomOf="@id/trackName"
-        tools:text="track Аuthor"
-        tools:ignore="PrivateResource" />
+        app:layout_constraintStart_toEndOf="@id/songCover"
+        app:layout_constraintTop_toBottomOf="@id/songName"
+        tools:text="The Beatles" />
 
     <ImageView
-        android:id="@+id/pointIco"
+        android:id="@+id/eyeIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/marginTop"
-        app:layout_constraintBottom_toBottomOf="@id/trackАuthor"
-        app:layout_constraintStart_toEndOf="@id/trackАuthor"
-        app:layout_constraintTop_toTopOf="@id/trackАuthor"
-        app:srcCompat="@drawable/eclipce" />
+        android:padding="@dimen/card_radius"
+        app:layout_constraintBottom_toBottomOf="@id/songArtist"
+        app:layout_constraintStart_toEndOf="@id/songArtist"
+        app:layout_constraintTop_toTopOf="@id/songArtist"
+        app:srcCompat="@drawable/eye" />
 
     <TextView
-        android:id="@+id/trackTime"
+        android:id="@+id/songDuration"
         style="@style/SettingsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="?attr/colorContainer"
         android:textSize="@dimen/text_11sp"
-        app:layout_constraintBottom_toBottomOf="@id/pointIco"
-        app:layout_constraintStart_toEndOf="@id/pointIco"
-        app:layout_constraintTop_toTopOf="@id/pointIco"
-        tools:text="00:59" />
+        app:layout_constraintBottom_toBottomOf="@id/eyeIcon"
+        app:layout_constraintStart_toEndOf="@id/eyeIcon"
+        app:layout_constraintTop_toTopOf="@id/eyeIcon"
+        tools:text="02:25" />
 
     <ImageView
         android:id="@+id/nextArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop"
-        android:padding="@dimen/padding"
+        android:layout_marginTop="@dimen/iv_margin"
+        android:padding="@dimen/padding_all_around"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/left" />
+        app:srcCompat="@drawable/next_arrow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

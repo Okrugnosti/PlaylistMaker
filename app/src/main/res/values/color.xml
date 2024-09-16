@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#3772E7</color>
-    <color name="white">#ffffff</color>
-    <color name="black">#1A1B22</color>
-    <color name="gray">#AEAFB4</color>
-    <color name="grayLight">#E6E8EB</color>
+    <color name="yp_red">#F56B6C</color>
+    <color name="yp_blue">#3772E7</color>
     <color name="yp_blue_light">#9FBBF3</color>
-
+    <color name="ripple_colour">#84a98c</color>
+    <color name="yp_black">#1A1B22</color>
+    <color name="yp_white">#FFFFFFFF</color>
+    <color name="yp_text_gray">#AEAFB4</color>
+    <color name="yp_light_gray">#E6E8EB</color>
 
 </resources>

@@ -1,37 +1,34 @@
 <resources>
-    <string name="s1">Playlist maker</string>
-    <string name="s2">Поиск</string>
-    <string name="s3">Медиатека</string>
-    <string name="s4">Настройки</string>
+    <string name="app_name" translatable="false">Playlist maker</string>
+    <string name="search">Поиск</string>
+    <string name="media">Медиатека</string>
+    <string name="settings">Настройки</string>
+    <string name="dark_mode">Тёмная тема</string>
+    <string name="share">Поделиться приложением</string>
+    <string name="support">Написать в поддержку</string>
+    <string name="user_agreement">Пользовательское соглашение</string>
 
-    <string name="t1">Настройки</string>
-    <string name="t2">Темная тема</string>
-    <string name="t3">Поделиться приложением</string>
-    <string name="t4">Написать в поддержку</string>
-    <string name="t5">Пользовательское соглашение</string>
 
-    <string name="w1">Поиск</string>
+    <string name="email_subject">"Сообщение разработчикам приложения"</string>
+    <string name="email_body">"Спасибо разработчикам за приложение!"</string>
 
-    <string name="e1">ЭКРАН Activiti_Media</string>
-    <string name="e2">ЭКРАН Activiti_Search</string>
+    <string name="select">"Отправить с помощью:"</string>
+    <string name="select_mail">"Выберите почту:"</string>
 
-    <string name="g1">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
-    <string name="g2">Спасибо разработчикам и разработчицам за крутое приложение!</string>
-    <string name="g3">https://yandex.ru/legal/practicum_offer/</string>
-    <string name="g4">https://practicum.yandex.ru/android-developer/</string>
-    <string name="g5">em2s@gmail.com</string>
+    <string name="practicum_link">"https://practicum.yandex.ru/android-developer/"</string>
+    <string name="developer_email">"em2s.7.34@gmail.com"</string>
+    <string name="user_agreement_link">"https://yandex.ru/legal/practicum_offer/"</string>
 
-    <string name="not_found">Ничего не нашлось</string>
-    <string name="not_connect">Проблемы со связью \n\nЗагрузка не удалась проверьте подключение к интернету</string>
+    <string name="nothing_found">Отсутсвуют результаты поиска</string>
+    <string name="connections_issue">Проблемы со связью \n\n Проверьте подключение к интернету</string>
+
     <string name="refresh">Обновить</string>
-
-    <string name="cle_his_search">Очистить историю</string>
     <string name="search_head">Вы искали</string>
+    <string name="clear_history_search">Очистить историю</string>
 
-    <string name="text_duration">Длительность</string>
-    <string name="text_album">Альбом</string>
-    <string name="text_year">Год</string>
-    <string name="text_genre">Жанр</string>
-    <string name="text_country">Страна</string>
-
+    <string name="duration">Длительность</string>
+    <string name="album">Альбом</string>
+    <string name="year">Год</string>
+    <string name="genre">Жанр</string>
+    <string name="country">Страна</string>
 </resources>
